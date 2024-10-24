@@ -11,6 +11,15 @@ class UserController {
     public function index() {
         $this->loadView('user', ['title' => 'Welcome to the User Page!']);
     }
+    public function submit() {
+
+        $tableName = sanitize($_POST['table_name']);
+        $fields = $_POST['fields'] ?? [];
+
+        // Use the model to create the table
+        $result = $this->userModel->createTable($tableName, $fields);
+        echo $result;
+    }
 
     public function profile() {
         $userModel = new UserModel();

@@ -12,7 +12,11 @@ $router = new Router('/page_maker/avenger');
 // Define routes and associate with controller methods
 $router->get('/', [HomeController::class, 'index']);
 $router->get('/about', [HomeController::class, 'about']);
+$router->get('/contact', [HomeController::class, 'contact']);
+
 $router->get('/user', [UserController::class, 'index']);
+$router->post('/submit', [UserController::class, 'submit']);
+
 $router->get('/profile', [UserController::class, 'profile']);
 $router->post('/user/create', [UserController::class, 'createUser']);
 
